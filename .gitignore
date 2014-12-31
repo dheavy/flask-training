@@ -9,3 +9,5 @@ dist
 _mailinglist
 .tox
 flask
+db_repository
+*.db
