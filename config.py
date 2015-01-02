@@ -1,4 +1,5 @@
 import os
+import config_local
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -16,3 +17,12 @@ OPENID_PROVIDERS = [
 
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
+
+# Mail server settings.
+MAIL_SERVER = config_local.MAIL_SERVER
+MAIL_PORT = config_local.MAIL_PORT
+MAIL_USERNAME = config_local.MAIL_USERNAME
+MAIL_PASSWORD = config_local.MAIL_PASSWORD
+
+# Admin list.
+ADMINS = ['hello@davybraun.com']

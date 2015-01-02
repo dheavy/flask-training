@@ -13,3 +13,4 @@ db_repository
 *.db
 tmp/**
 !tmp/.gitkeep
+config_local.py
