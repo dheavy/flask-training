@@ -26,3 +26,6 @@ MAIL_PASSWORD = config_local.MAIL_PASSWORD
 
 # Admin list.
 ADMINS = ['hello@davybraun.com']
+
+# Pagination
+POSTS_PER_PAGE = 3

@@ -29,3 +29,7 @@ class EditForm(Form):
       return False
 
     return True
+
+
+class PostForm(Form):
+  post = StringField('post', validators=[DataRequired()])
