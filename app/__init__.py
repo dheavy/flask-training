@@ -5,18 +5,26 @@ from flask.ext.login import LoginManager
 from flask.ext.openid import OpenID
 from flask.ext.mail import Mail
 from config import basedir, ADMINS, MAIL_SERVER, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD
+from momentjs import momentjs
 
+# App and config object
 app = Flask(__name__)
 app.config.from_object('config')
 
+# Database
 db = SQLAlchemy(app)
 
+# Login
 lm = LoginManager()
 lm.init_app(app)
 lm.login_view = 'login'
 oid = OpenID(app, os.path.join(basedir, 'tmp'))
 mail = Mail(app)
 
+# Wrap moment.js util for template's markup
+app.jinja_env.globals['momentjs'] = momentjs
+
+# Logging (via email)
 if not app.debug:
   import logging
   from logging.handlers import SMTPHandler, RotatingFileHandler
@@ -36,4 +44,5 @@ if not app.debug:
   app.logger.addHandler(file_handler)
   app.logger.info('microblog startup')
 
+# Boostrap views and models
 from app import views, models

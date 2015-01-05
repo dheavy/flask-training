@@ -2,7 +2,7 @@ from flask.ext.mail import Message
 from app import mail
 from flask import render_template, current_app
 from config import ADMINS
-from decorators import async
+from app.decorators import async
 
 
 def send_async_email(app, msg):
